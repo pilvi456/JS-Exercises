@@ -15,8 +15,8 @@
 		<p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons. Use Developer Console to find the </p>
 		<p>
 		  <button onclick="changeHeading();">Button 1</button>
-		  <button onclick="secondButton">Button 2</button>
-		  <button onclick="">Button 3</button>
+		  <button onclick="secondButton();">Button 2</button>
+		  <button onclick="thirdButton()">Button 3</button>
 		</p>
 
 		<ul>
@@ -41,7 +41,7 @@
 			</label>
 			<br>
 			<label>
-				<input type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
+				<input onchange="surprise()" type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
 				<span id="surpise">Surprise</span>
 			</label>
 		</p>
@@ -60,15 +60,15 @@
 				<li>When you have accomplished the above, change the image (id=&quot;carimage&quot;) below based on the users choice on the pulldown menu below. Find appropriate images from the web.
 			</ul>
 		  <p>Select a new car from the list.</p>
-		  <select name="mySelect" id="mySelect" onchange="">
-			<option value="BMW">BMW         
-			<option value="Audi">Audi
-			<option value="Mercedes">Mercedes
-			<option value="Volvo">Volvo
+		  <select name="mySelect" id="mySelect" onchange="changeImage()">
+			<option value="BMW">BMW</option>         
+			<option value="Audi">Audi</option>
+			<option value="Mercedes">Mercedes</option>
+			<option value="Volvo">Volvo</option>
 		  </select>
 		  <br>
 		  <br>
-		<img alt="" onmouseover="" onmouseout="" style="left: 0px; opacity: 1;" src="http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage"/>
+		<img onmouseover="esille()" onmouseout="piilota()" style="left: 0px; opacity: 1;" src="http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage" alt=""/>
 		<hr/>
 		<h2>Exercise 4: Moving things around</h2>
 		<ul>
@@ -148,6 +148,70 @@
 			</li>
 			<li dir="ltr">How would you replace the contents only on the ones with the word &lsquo;Select&rsquo; in them?</li>
 		</ul>
+
+		<script>
+			//1
+			function changeHeading(){
+				document.getElementsByTagName("h1")[0].innerHTML="Modified Heading!";
+			}
+
+			function secondButton(){
+                document.getElementsByTagName('h2')[1].style.fontStyle = "italic";
+				document.getElementsByTagName('h2')[1].style.fontSize = "large";
+				document.getElementsByTagName('h2')[1].style.color = "Black";
+				document.getElementsByTagName('h2')[1].style.backgroundColor ="pink";
+            }
+
+			function thirdButton(){
+				document.body.style.backgroundColor="yellow";
+				document.getElementsByTagName('p')[3].innerHTML +="<i>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit.</i>"
+			}
+
+			//2
+			function hide(){
+				document.getElementById("me").style= "display: none";
+			}
+			function show(){
+				document.getElementById("me").style= "display: block";
+			}
+			function surprise() {
+				var elements= document.getElementsByClassName("surprise");
+				for(var i=0; i <elements.length; i++){
+					elements[i].style = "font-size: 20px;"
+				}
+			}
+
+			function changeImage(){
+				var data = document.getElementById("mySelect").value;
+				var image= document.getElementById("carimage");
+				alert("Your selection: "+data);
+				if(data == "Audi"){
+					image.src = "https://assets.apu.fi/vqd9tl2q3uk2/1BGNGLyzq8kK6627SWYt6i/8a1d2dea7611845347238ff94c67a44e/Audi_A4_Avant_g-tron_-kaasuauto_2a7tP.jpg?w=2048&q=75&fit=crop-center";
+				}
+				if(data == "BMW"){
+					image.src = "https://cdn.tekniikanmaailma.fi/wp-content/uploads/2017/10/1012-bmw-323i-1.jpg";
+				}
+				if (data == "Mercedes"){
+					image.src = "https://www.erclassics.com/media/catalog/product/cache/2/image/700x/17f82f742ffe127f42dca9de82fb58b1/b/c/bcar_1431.jpg";
+				}
+				if (data == "Volvo"){
+					image.src= "https://www.volvocars.com/images/v/fi/v/-/media/project/contentplatform/data/media/heritagemodels/27_volvo244_large.jpg?h=1932&iar=0&w=4096";
+				}
+			}
+
+			function esille(){
+				document.getElementById("carimage").style= "border: 5px dotted red";
+			}
+			function piilota(){
+				document.getElementById("carimage").style= "border: 0px solid red";
+			}
+			
+		
+		
+
+
+
+		</script>
 	</body>
 </html>
 
