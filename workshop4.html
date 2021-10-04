@@ -149,6 +149,9 @@
 			<li dir="ltr">How would you replace the contents only on the ones with the word &lsquo;Select&rsquo; in them?</li>
 		</ul>
 
+		<button onclick="muuFunction()">Try it</button>
+		
+
 		<script>
 			//1
 			function changeHeading(){
@@ -253,7 +256,16 @@
 				cell3.innerHTML=salary;
 			}
 
-			
+			//extratehtävä
+
+			function muuFunction() {
+  			var x = document.getElementsByTagName("LI");
+  			var i;
+  			for (i = 0; i < x.length; i++) {
+   		 	x[i].innerHTML = "<strong>Replaced</strong>";
+  }
+}
+
 
 
 		</script>
