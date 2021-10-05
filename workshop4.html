@@ -150,6 +150,8 @@
 		</ul>
 
 		<button onclick="muuFunction()">Try it</button>
+		<br>
+		<button onclick="ekstraFunction()">Ekstra</button>
 		
 
 		<script>
@@ -265,6 +267,18 @@
    		 	x[i].innerHTML = "<strong>Replaced</strong>";
   }
 }
+
+			function ekstraFunction(){
+				var liTable =document.getElementsByTagName("li");
+
+				for (var i=0; i<liTable.length; i++){
+					var text = "\"Replaced\" ";
+					text = text.fontcolor("red");
+					text = (text + liTable[i].innerHTML);
+					liTable[i].innerHTML=text;
+					liTable[i].style.fontWeight= 900;
+				}
+			}
 
 
 
